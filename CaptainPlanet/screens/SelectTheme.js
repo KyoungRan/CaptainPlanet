@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { ListView, Text, View } from 'react-native';
+const util = require('util');
 
 class SelectTheme extends Component {
+  static navigationOptions = {
+    title: 'First Screen'
+  };
+
   constructor() {
     super();
     const ds = new ListView.DataSource({
@@ -13,6 +18,12 @@ class SelectTheme extends Component {
   }
 
   render() {
+    console.log(
+      'this.props.navigation= ' +
+        util.inspect(this.props.navigation, false, null)
+    );
+    const { navigate } = this.props.navigation;
+
     return (
       <View>
         <Text>관심 있는 테마를 골라주세요.</Text>
